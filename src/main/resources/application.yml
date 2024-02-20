@@ -7,7 +7,7 @@ spring:
   application:
     name: edu-spring-data-jdbc
   profiles:
-    active: local
+    active: prd
   banner:
     location: "classpath:banner.txt"
 # cache 사용을 위해 cache name 설정
@@ -30,7 +30,7 @@ spring:
 jwt:
   auth:
     converter:
-      resource-id: edu-app # movies-app
+      resource-id: edu-apps # movies-app
       principal-attribute: preferred_username
 
 app:
