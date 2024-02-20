@@ -44,11 +44,9 @@ public class WebSecurityConfig {
                 .formLogin(Customizer.withDefaults());
          http
                 .authorizeHttpRequests(authorizeHttpRequests -> authorizeHttpRequests
-                        //.requestMatchers(HttpMethod.GET, "/api/v1/**").permitAll()
+                        .requestMatchers(HttpMethod.GET, "api/v1/employees", "api/vi/employees/**").permitAll()
                         .requestMatchers(HttpMethod.GET, "/actuator/**").permitAll()
-                        //.requestMatchers("/api/v1/employees").hasAnyRole(EDU_MANAGER, EDU_USER)
-                        .requestMatchers(HttpMethod.POST,"/api/v1/employees","api/v1/employee/**","api/v1/employees/**").hasAnyRole("EDU_MANAGER")
-                        .requestMatchers(HttpMethod.GET,"/api/v1").hasAnyRole("EDU_MANAGER", "EDU_USER")
+                        .requestMatchers("api/v1/employees", "api/v1/employees/**","api/v1/employee/**").hasRole(EDU_MANAGER)
                         .requestMatchers("/swagger-ui.html", "/swagger-ui/**", "/v3/api-docs", "/v3/api-docs/**").permitAll()
                         .anyRequest().authenticated())
                 .oauth2ResourceServer(oauth2ResourceServer -> oauth2ResourceServer.jwt(
@@ -59,5 +57,5 @@ public class WebSecurityConfig {
     }
 
     public static final String EDU_MANAGER = "EDU_MANAGER";
-    public static final String EMP_USER = "EDU_USER";
+    public static final String EDU_USER = "EDU_USER";
 }
