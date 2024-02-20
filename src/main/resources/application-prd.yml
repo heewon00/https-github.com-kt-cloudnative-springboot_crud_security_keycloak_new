@@ -44,11 +44,11 @@ springdoc:
     disable-swagger-default-url: true
     #doc-expansion: none
 
-logging:
-  level:
-    com.kt.edu: trace
-    org.springframework.security: DEBUG
-    org:
-      keycloak:
-        admin:
-          client: DEBUG
+#logging:
+#  level:
+#    com.kt.edu: trace
+#    org.springframework.security: DEBUG
+#    org:
+#      keycloak:
+#        admin:
+#          client: DEBUG
