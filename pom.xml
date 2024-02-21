@@ -203,10 +203,6 @@
 		                <groupId>com.google.cloud.tools</groupId>
 		                <artifactId>jib-maven-plugin</artifactId>
 		                <version>3.4.0</version>
-			        <configuration>
-                                    <containerizingMode>packaged</containerizingMode>
-                                    <allowInsecureRegistries>true</allowInsecureRegistries>
-                                </configuration>
 		        </plugin>
 			<plugin>
 				<groupId>org.sonarsource.scanner.maven</groupId>
