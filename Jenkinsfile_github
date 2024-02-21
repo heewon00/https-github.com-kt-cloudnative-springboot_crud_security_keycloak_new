@@ -5,6 +5,7 @@ def docker_registry = "ghcr.io"
 // 본인 이미지 사용
 def imageName = "ghcr.io/heewon00/springboot_crud_security_new"
 def git_ops_name = "app-of-apps-keycloak"
+def dir = "charts/backend"
 
 def fromImage = "ghcr.io/heewon00/jre17-runtime:v1.0.0"
 
@@ -65,7 +66,7 @@ podTemplate(label: label, serviceAccount: 'jenkins-admin', namespace: P_NAMESPAC
                     sh """
                         cd ~
                         git clone https://${USERNAME}:${PASSWORD}@github.com/${USERNAME}/${git_ops_name}
-                        cd ${git_ops_name}
+                        cd ${git_ops_name}/${dir}
                         git checkout HEAD
                         kustomize edit set image ${imageName}:${TAG}
                         git config --global user.email ${P_EMAIL}
